@@ -1,5 +1,5 @@
 # pyEncrypt
-Python Encryption using Fernet
+Python encryption using Fernet
 
 Folder Layout
 
