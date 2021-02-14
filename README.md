@@ -3,12 +3,9 @@ Python Encryption using Fernet
 
 Folder Layout
 
-Root Folder \n
-|
-|---- files (folder)
-|
-|---- pyEncrypt.py
-
+Root Folder
+  - files (folder)
+  - pyEncrypt.py
 
 
 Place "pyEncrypt.py" in a folder with a folder called "files"
