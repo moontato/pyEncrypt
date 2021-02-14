@@ -3,7 +3,7 @@ Python Encryption using Fernet
 
 Folder Layout
 
-Root Folder
+Root Folder \n
 |
 |---- files (folder)
 |
