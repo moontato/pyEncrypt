@@ -1,10 +1,12 @@
 import os
 from cryptography.fernet import Fernet
+import pyperclip
+
 
 os.system("clear")
-encryptOrDecrypt = input("\nEncrypt or Decrypt?\n1) Encrypt\n2) Decrypt\n\n")
+encryptOrDecrypt = input("\nEncrypt or Decrypt?\n1) Encrypt\n2) Quick Encrypt\n3) Decrypt\n4) Quick Decrypt\n\n")
 
-    
+
 # Functions
 def write_key():
     # Generate key
@@ -42,7 +44,6 @@ if(encryptOrDecrypt == "1"):
     if fileName.startswith("files/"):
         fileName = fileName[len("files/"):]
 
-
     # Writing encrypted file to output file
     outputFile = open("files/(e) " + fileName, "w")
     outputFile.write(encrypted.decode("utf-8"))
@@ -53,7 +54,7 @@ if(encryptOrDecrypt == "1"):
 
 
 
-elif(encryptOrDecrypt == "2"):
+elif(encryptOrDecrypt == "3"):
 
     os.system("clear")
     fileName = "files/" + input("\nWhat's the file called?\n\n")
@@ -77,3 +78,27 @@ elif(encryptOrDecrypt == "2"):
     print("\nDone!\n")
 
 
+
+elif(encryptOrDecrypt == "2"):
+
+    key = load_key()
+
+    os.system("clear")
+    toEncrypt = input("\n(Encrypt) The message:\n") # saving quick message to var
+
+    fernet = Fernet(key)
+    output = fernet.encrypt(toEncrypt.encode("utf-8")).decode("utf-8")
+    print("\n\nEncrypted:\n" + output)
+    pyperclip.copy(output)
+
+
+elif(encryptOrDecrypt == "4"):
+
+    key = load_key()
+
+    os.system("clear")
+    toDecrypt = input("\n(Decrypt) The message:\n")
+
+    fernet = Fernet(key)
+    output = "\n\nDecrypted:\n" + fernet.decrypt(toDecrypt.encode("utf-8")).decode("utf-8")
+    print(output)
